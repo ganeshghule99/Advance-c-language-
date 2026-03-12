@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void addDistance(int *km, int *cm, int *mm, int addmm)
+{
+    *mm = *mm + addmm;
+
+    *cm = *cm + (*mm / 10);
+    *mm = *mm % 10;
+
+    *km = *km + (*cm / 100000);
+    *cm = *cm % 100000;
+}
+
+int main()
+{
+    int km, cm, mm, addmm;
+
+    printf("Enter distance (km cm mm): ");
+    scanf("%d %d %d", &km, &cm, &mm);
+
+    printf("Enter millimeters to add: ");
+    scanf("%d", &addmm);
+
+    addDistance(&km, &cm, &mm, addmm);
+
+    printf("New Distance = %d km %d cm %d mm\n", km, cm, mm);
+
+    return 0;
+}
