@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i;
+    int *p;
+    int min;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    p = arr;
+    min = *p;
+
+    for(i = 1; i < n; i++)
+    {
+        if(*(p + i) < min)
+            min = *(p + i);
+    }
+
+    printf("Minimum element = %d\n", min);
+
+    return 0;
+}
