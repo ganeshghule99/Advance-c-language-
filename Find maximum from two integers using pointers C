@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+    int a, b;
+    int *p, *q;
+
+    p = &a;
+    q = &b;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", p, q);
+
+    if(*p > *q)
+        printf("Maximum = %d\n", *p);
+    else
+        printf("Maximum = %d\n", *q);
+
+    return 0;
+}
