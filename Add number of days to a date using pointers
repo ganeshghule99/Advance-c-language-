@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+void addDays(int *d, int *m, int *y, int days)
+{
+    *d = *d + days;
+
+    while(*d > 30) 
+    {
+        *d = *d - 30;
+        (*m)++;
+
+        if(*m > 12)
+        {
+            *m = 1;
+            (*y)++;
+        }
+    }
+}
+
+int main()
+{
+    int d, m, y, days;
+
+    printf("Enter date (dd mm yyyy): ");
+    scanf("%d %d %d", &d, &m, &y);
+
+    printf("Enter number of days to add: ");
+    scanf("%d", &days);
+
+    addDays(&d, &m, &y, days);
+
+    printf("New Date = %d/%d/%d\n", d, m, y);
+
+    return 0;
+}
