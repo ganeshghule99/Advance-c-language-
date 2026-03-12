@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+void checkNumber(int num, int *evenFlag, int *primeFlag, int *divFlag)
+{
+    int i;
+
+    if(num % 2 == 0)
+        *evenFlag = 1;
+    else
+        *evenFlag = 0;
+
+    *primeFlag = 1;
+
+    if(num <= 1)
+        *primeFlag = 0;
+
+    for(i = 2; i <= num/2; i++)
+    {
+        if(num % i == 0)
+        {
+            *primeFlag = 0;
+            break;
+        }
+    }
+
+    if(num % 3 == 0 || num % 7 == 0)
+        *divFlag = 1;
+    else
+        *divFlag = 0;
+}
+
+int main()
+{
+    int num;
+    int evenFlag, primeFlag, divFlag;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    checkNumber(num, &evenFlag, &primeFlag, &divFlag);
+
+    if(evenFlag)
+        printf("Number is Even\n");
+    else
+        printf("Number is Odd\n");
+
+    if(primeFlag)
+        printf("Number is Prime\n");
+    else
+        printf("Number is Not Prime\n");
+
+    if(divFlag)
+        printf("Number is divisible by 3 or 7\n");
+    else
+        printf("Number is not divisible by 3 or 7\n");
+
+    return 0;
+}
