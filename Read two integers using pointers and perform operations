@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+    int a, b;
+    int *p, *q;
+
+    p = &a;
+    q = &b;
+
+    printf("Enter two integers: ");
+    scanf("%d %d", p, q);
+
+    printf("Addition = %d\n", *p + *q);
+    printf("Subtraction = %d\n", *p - *q);
+    printf("Multiplication = %d\n", *p * *q);
+
+    if(*q != 0)
+        printf("Division = %d\n", *p / *q);
+    else
+        printf("Division not possible\n");
+
+    return 0;
+}
